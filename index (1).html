@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ✅ SEO -->
+<title>SkillForge - Learn Web Development, AI & Tech Skills Online</title>
+
+<meta name="description" content="SkillForge is an online learning platform to master web development, AI, data science and more with expert courses and hands-on projects.">
+
+<meta name="keywords" content="SkillForge, online learning, web development, AI, data science, programming courses">
+
+<meta name="author" content="SkillForge">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://wasimedu.github.io/skillfoge/">
+
+<!-- ✅ Open Graph -->
+<meta property="og:title" content="SkillForge - Learn Skills Online">
+<meta property="og:description" content="Master web development, AI, and more with SkillForge.">
+<meta property="og:url" content="https://wasimedu.github.io/skillfoge/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://wasimedu.github.io/skillfoge/preview.png">
+
+<!-- ✅ Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SkillForge - Learn Skills Online">
+<meta name="twitter:description" content="Master web development, AI, and more with SkillForge.">
+<meta name="twitter:image" content="https://wasimedu.github.io/skillfoge/preview.png">
+
+<!-- ✅ Existing scripts (KEEP THESE) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<!-- ✅ Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SkillForge",
+  "url": "https://wasimedu.github.io/skillfoge/",
+  "description": "Online platform to learn web development, AI, and modern tech skills."
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{min-height:100vh;display:flex;flex-direction:column}
+#main-content{flex:1}
+.modal-content::-webkit-scrollbar{display:none}
+.modal-content{-ms-overflow-style:none;scrollbar-width:none}
+.nav-link{transition:color .2s}
+.nav-link:hover{color:#059669}
+.card-hover{transition:transform .2s,box-shadow .2s}
+.card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.gradient-text{background:linear-gradient(135deg,#059669,#0d9488);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-gradient{background:linear-gradient(135deg,#059669 0%,#0d9488 50%,#0891b2 100%)}
+.stats-gradient{background:linear-gradient(135deg,#059669 0%,#0d9488 50%,#047857 100%)}
+.newsletter-gradient{background:linear-gradient(135deg,#059669 0%,#0d9488 50%,#047857 100%)}
+.mobile-menu{transform:translateX(100%);transition:transform .3s ease}
+.mobile-menu.open{transform:translateX(0)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-answer.open{max-height:500px}
+.curriculum-content{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.curriculum-content.open{max-height:1000px}
+.overlay{transition:opacity .3s ease}
+.overlay.hidden{opacity:0;pointer-events:none}
+.search-input{width:0;opacity:0;transition:width .3s,opacity .3s}
+.search-input.open{width:200px;opacity:1}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.animate-fade-in-up{animation:fadeInUp .5s ease forwards}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float-animation{animation:float 3s ease-in-out infinite}
+.sitemap-dropdown{display:none}
+.sitemap-dropdown.open{display:block}
+</style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<!-- Logo -->
+<a href="#home" class="flex items-center gap-2 text-xl font-bold">
+<span class="text-2xl">🎓</span>
+<span class="gradient-text">SkillForge</span>
+</a>
+<!-- Desktop Nav -->
+<div class="hidden lg:flex items-center gap-6">
+<a href="#home" class="nav-link text-gray-600 text-sm font-medium">Home</a>
+<a href="#features" class="nav-link text-gray-600 text-sm font-medium">Features</a>
+<a href="#courses" class="nav-link text-gray-600 text-sm font-medium">Courses</a>
+<a href="#testimonials" class="nav-link text-gray-600 text-sm font-medium">Testimonials</a>
+<a href="#blog" class="nav-link text-gray-600 text-sm font-medium">Blog</a>
+<a href="#faq" class="nav-link text-gray-600 text-sm font-medium">FAQ</a>
+<a href="#contact" class="nav-link text-gray-600 text-sm font-medium">Contact</a>
+<!-- About (opens modal) -->
+<a href="#" onclick="openModal('about');return false" class="nav-link text-gray-600 text-sm font-medium">About</a>
+<!-- Sitemap dropdown -->
+<div class="relative">
+<button onclick="toggleSitemapDropdown()" class="nav-link text-gray-600 text-sm font-medium flex items-center gap-1">Sitemap <i data-lucide="chevron-down" class="w-3 h-3"></i></button>
+<div id="sitemapDropdown" class="sitemap-dropdown absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+<a href="#home" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Home</a>
+<a href="#features" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Features</a>
+<a href="#courses" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Courses</a>
+<a href="#stats" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Statistics</a>
+<a href="#testimonials" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Testimonials</a>
+<a href="#blog" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Blog</a>
+<a href="#faq" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">FAQ</a>
+<a href="#contact" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Contact</a>
+<a href="#" onclick="openModal('about');return false" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">About</a>
+<a href="#" onclick="openModal('privacy');return false" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Privacy Policy</a>
+<a href="#" onclick="openModal('terms');return false" class="block px-4 py-2 text-sm text-gray-600 hover:bg-emerald-50 hover:text-emerald-600">Terms of Service</a>
+</div>
+</div>
+</div>
+<!-- Right side -->
+<div class="flex items-center gap-3">
+<!-- Search toggle -->
+<div class="hidden lg:flex items-center">
+<input id="searchInput" type="text" placeholder="Search..." class="search-input px-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+<button onclick="toggleSearch()" class="p-2 text-gray-500 hover:text-emerald-600"><i data-lucide="search" class="w-5 h-5"></i></button>
+</div>
+<a href="#courses" class="hidden sm:inline-flex px-5 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition">Get Started</a>
+<!-- Hamburger -->
+<button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-gray-600"><i data-lucide="menu" class="w-6 h-6"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] bg-white">
+<div class="flex items-center justify-between p-4 border-b">
+<a href="#home" class="flex items-center gap-2 text-xl font-bold">
+<span class="text-2xl">🎓</span>
+<span class="gradient-text">SkillForge</span>
+</a>
+<button onclick="toggleMobileMenu()" class="p-2 text-gray-600"><i data-lucide="x" class="w-6 h-6"></i></button>
+</div>
+<div class="p-4 overflow-y-auto h-[calc(100vh-65px)]">
+<!-- Mobile Search -->
+<div class="mb-4">
+<input type="text" placeholder="Search courses..." class="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+</div>
+<!-- Mobile Nav Links -->
+<div class="space-y-1">
+<a href="#home" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">Home</a>
+<a href="#features" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">Features</a>
+<a href="#courses" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">Courses</a>
+<a href="#testimonials" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">Testimonials</a>
+<a href="#blog" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">Blog</a>
+<a href="#faq" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">FAQ</a>
+<a href="#contact" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">Contact</a>
+<a href="#" onclick="openModal('about');toggleMobileMenu();return false" class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium">About</a>
+</div>
+<!-- Mobile CTA -->
+<div class="mt-4 px-4">
+<a href="#courses" onclick="toggleMobileMenu()" class="block text-center px-5 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition">Get Started</a>
+</div>
+<!-- Mobile Sitemap -->
+<div class="mt-6 border-t pt-4">
+<h3 class="px-4 mb-2 text-sm font-semibold text-gray-500 uppercase">Sitemap</h3>
+<div class="grid grid-cols-2 gap-1">
+<a href="#home" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Home</a>
+<a href="#features" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Features</a>
+<a href="#courses" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Courses</a>
+<a href="#stats" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Statistics</a>
+<a href="#testimonials" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Testimonials</a>
+<a href="#blog" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Blog</a>
+<a href="#faq" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">FAQ</a>
+<a href="#contact" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Contact</a>
+<a href="#" onclick="openModal('about');toggleMobileMenu();return false" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">About</a>
+<a href="#" onclick="openModal('privacy');toggleMobileMenu();return false" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Privacy Policy</a>
+<a href="#" onclick="openModal('terms');toggleMobileMenu();return false" class="block px-4 py-2 text-sm text-gray-600 hover:text-emerald-600">Terms of Service</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+
+<!-- HERO SECTION -->
+<section id="home" class="py-16 lg:py-24 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<!-- Left -->
+<div>
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-6">
+<i data-lucide="star" class="w-4 h-4 fill-emerald-500 text-emerald-500"></i>
+#1 Online Learning Platform
+</div>
+<h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">Master New Skills with <span class="gradient-text">SkillForge</span></h1>
+<p class="text-lg text-gray-600 mb-8 max-w-lg">Unlock your potential with expert-led courses, interactive projects, and a supportive community. Start your learning journey today and transform your career.</p>
+<div class="flex flex-wrap gap-4 mb-8">
+<a href="#courses" class="px-8 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition shadow-lg shadow-emerald-600/25">Explore Courses</a>
+<a href="#" class="inline-flex items-center gap-2 px-8 py-3 border-2 border-emerald-600 text-emerald-600 font-medium rounded-lg hover:bg-emerald-50 transition">
+<i data-lucide="play-circle" class="w-5 h-5"></i> Watch Demo
+</a>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white">A</div>
+<div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-white text-xs font-bold border-2 border-white">R</div>
+<div class="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center text-white text-xs font-bold border-2 border-white">L</div>
+<div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 text-xs font-bold border-2 border-white">+</div>
+</div>
+<span class="text-sm text-gray-600">50,000+ Active Learners</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex text-yellow-400">
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+</div>
+<span class="text-sm text-gray-600">4.9 Rating</span>
+</div>
+</div>
+</div>
+<!-- Right: Decorative -->
+<div class="relative hidden lg:block">
+<div class="hero-gradient rounded-2xl h-96 w-full relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-white/20 text-9xl font-bold">SF</div>
+</div>
+<!-- Floating cards -->
+<div class="absolute top-6 left-6 bg-white rounded-xl shadow-lg p-4 float-animation">
+<div class="flex items-center gap-2">
+<i data-lucide="play-circle" class="w-8 h-8 text-emerald-600"></i>
+<div>
+<p class="text-sm font-semibold text-gray-800">Live Classes</p>
+<p class="text-xs text-gray-500">200+ sessions</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 right-6 bg-white rounded-xl shadow-lg p-4 float-animation" style="animation-delay:1s">
+<div class="flex items-center gap-2">
+<i data-lucide="award" class="w-8 h-8 text-amber-500"></i>
+<div>
+<p class="text-sm font-semibold text-gray-800">Certificates</p>
+<p class="text-xs text-gray-500">15,000+ issued</p>
+</div>
+</div>
+</div>
+<div class="absolute top-1/2 right-8 bg-white rounded-xl shadow-lg p-4 float-animation" style="animation-delay:2s">
+<div class="flex items-center gap-2">
+<i data-lucide="users" class="w-8 h-8 text-teal-600"></i>
+<div>
+<p class="text-sm font-semibold text-gray-800">Community</p>
+<p class="text-xs text-gray-500">50K+ members</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section id="features" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Why Choose <span class="gradient-text">SkillForge</span>?</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">We provide everything you need to succeed in your learning journey, from expert instruction to career support.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="card-hover p-6 rounded-2xl border border-gray-100 bg-white">
+<div class="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
+<i data-lucide="book-open" class="w-6 h-6 text-emerald-600"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Expert-Crafted Courses</h3>
+<p class="text-gray-600">Learn from industry professionals with years of real-world experience. Our courses are designed to give you practical, job-ready skills.</p>
+</div>
+<!-- Feature 2 -->
+<div class="card-hover p-6 rounded-2xl border border-gray-100 bg-white">
+<div class="w-12 h-12 rounded-xl bg-teal-100 flex items-center justify-center mb-4">
+<i data-lucide="monitor-play" class="w-6 h-6 text-teal-600"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Interactive Learning</h3>
+<p class="text-gray-600">Engage with hands-on projects, coding exercises, quizzes, and real-world scenarios that make learning effective and enjoyable.</p>
+</div>
+<!-- Feature 3 -->
+<div class="card-hover p-6 rounded-2xl border border-gray-100 bg-white">
+<div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-4">
+<i data-lucide="users" class="w-6 h-6 text-orange-600"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Community Support</h3>
+<p class="text-gray-600">Join a vibrant community of learners. Get help from peers and mentors, participate in discussions, and grow together.</p>
+</div>
+<!-- Feature 4 -->
+<div class="card-hover p-6 rounded-2xl border border-gray-100 bg-white">
+<div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
+<i data-lucide="award" class="w-6 h-6 text-amber-600"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Recognized Certificates</h3>
+<p class="text-gray-600">Earn industry-recognized certificates upon course completion to showcase your skills to employers and advance your career.</p>
+</div>
+<!-- Feature 5 -->
+<div class="card-hover p-6 rounded-2xl border border-gray-100 bg-white">
+<div class="w-12 h-12 rounded-xl bg-rose-100 flex items-center justify-center mb-4">
+<i data-lucide="clock" class="w-6 h-6 text-rose-600"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Learn at Your Pace</h3>
+<p class="text-gray-600">Access courses anytime, anywhere. Learn on your schedule with lifetime access to all course materials and updates.</p>
+</div>
+<!-- Feature 6 -->
+<div class="card-hover p-6 rounded-2xl border border-gray-100 bg-white">
+<div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mb-4">
+<i data-lucide="trending-up" class="w-6 h-6 text-purple-600"></i>
+</div>
+<h3 class="text-xl font-bold mb-2">Career Growth</h3>
+<p class="text-gray-600">Get career guidance, resume reviews, interview preparation, and job placement assistance to accelerate your professional growth.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS SECTION -->
+<section id="stats" class="py-20 stats-gradient text-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+<div>
+<div class="text-4xl lg:text-5xl font-bold mb-2"><span class="counter" data-target="200">0</span>+</div>
+<p class="text-emerald-100">Expert Courses</p>
+</div>
+<div>
+<div class="text-4xl lg:text-5xl font-bold mb-2"><span class="counter" data-target="50000">0</span>+</div>
+<p class="text-emerald-100">Active Learners</p>
+</div>
+<div>
+<div class="text-4xl lg:text-5xl font-bold mb-2"><span class="counter" data-target="15000">0</span>+</div>
+<p class="text-emerald-100">Certificates Issued</p>
+</div>
+<div>
+<div class="text-4xl lg:text-5xl font-bold mb-2"><span class="counter" data-target="98">0</span>%</div>
+<p class="text-emerald-100">Satisfaction Rate</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- COURSES SECTION -->
+<section id="courses" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Popular <span class="gradient-text">Courses</span></h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Explore our most popular courses and start learning today. Filter by category or search to find exactly what you need.</p>
+</div>
+<!-- Filters -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+<div class="flex flex-wrap justify-center gap-2" id="categoryFilters">
+<button onclick="filterCourses('All')" class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-emerald-600 text-white transition">All</button>
+<button onclick="filterCourses('Web Development')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">Web Development</button>
+<button onclick="filterCourses('Data Science')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">Data Science</button>
+<button onclick="filterCourses('Design')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">Design</button>
+<button onclick="filterCourses('Mobile Dev')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">Mobile Dev</button>
+<button onclick="filterCourses('AI & ML')" class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700 transition">AI & ML</button>
+</div>
+<div class="relative">
+<input id="courseSearch" type="text" placeholder="Search courses..." oninput="searchCourses()" class="px-4 py-2 pl-10 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
+<i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+</div>
+</div>
+<!-- Course Grid -->
+<div id="courseGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Courses rendered by JS -->
+</div>
+<!-- No courses message -->
+<div id="noCourses" class="hidden text-center py-16">
+<i data-lucide="search-x" class="w-16 h-16 text-gray-300 mx-auto mb-4"></i>
+<h3 class="text-xl font-semibold text-gray-600 mb-2">No courses found</h3>
+<p class="text-gray-500 mb-4">Try adjusting your filters or search term.</p>
+<button onclick="clearCourseFilters()" class="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Clear Filters</button>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonials" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">What Our <span class="gradient-text">Learners</span> Say</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Hear from our community of successful learners who transformed their careers with SkillForge.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="card-hover p-8 rounded-2xl border border-gray-100 bg-white">
+<i data-lucide="quote" class="w-10 h-10 text-emerald-200 mb-4"></i>
+<p class="text-gray-600 mb-6">"SkillForge completely transformed my career. The web development bootcamp gave me the skills and confidence to land my dream job at Google. The instructors are world-class and the community support is incredible."</p>
+<div class="flex text-yellow-400 mb-4">
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-sm">AP</div>
+<div>
+<p class="font-semibold text-gray-800">Ananya Patel</p>
+<p class="text-sm text-gray-500">Frontend Developer at Google</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="card-hover p-8 rounded-2xl border border-gray-100 bg-white">
+<i data-lucide="quote" class="w-10 h-10 text-emerald-200 mb-4"></i>
+<p class="text-gray-600 mb-6">"The Data Science course on SkillForge was a game-changer for me. The hands-on projects and real-world datasets helped me build a portfolio that impressed recruiters. I went from a beginner to a Data Scientist at Microsoft."</p>
+<div class="flex text-yellow-400 mb-4">
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-sm">RS</div>
+<div>
+<p class="font-semibold text-gray-800">Rahul Sharma</p>
+<p class="text-sm text-gray-500">Data Scientist at Microsoft</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="card-hover p-8 rounded-2xl border border-gray-100 bg-white">
+<i data-lucide="quote" class="w-10 h-10 text-emerald-200 mb-4"></i>
+<p class="text-gray-600 mb-6">"The quality of courses on SkillForge is unmatched. The UI/UX Design Masterclass helped me refine my skills and understand design thinking at a deeper level. Now I'm designing products used by millions at Apple."</p>
+<div class="flex text-yellow-400 mb-4">
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+<i data-lucide="star" class="w-4 h-4 fill-current"></i>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center text-white font-bold text-sm">LC</div>
+<div>
+<p class="font-semibold text-gray-800">Lisa Chen</p>
+<p class="text-sm text-gray-500">UX Designer at Apple</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BLOG SECTION -->
+<section id="blog" class="py-20 bg-gray-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Latest from Our <span class="gradient-text">Blog</span></h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Stay updated with the latest trends, tips, and insights from the world of technology and learning.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Blog 1 -->
+<div onclick="openModal('blog-1')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white border border-gray-100">
+<div class="h-48" style="background:linear-gradient(135deg,#059669,#0d9488)"></div>
+<div class="p-6">
+<span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full mb-3">Tech Trends</span>
+<h3 class="text-lg font-bold mb-2 hover:text-emerald-600 transition">Top 10 Programming Languages to Learn in 2025</h3>
+<div class="flex items-center gap-4 text-sm text-gray-500">
+<span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> Jan 15, 2025</span>
+<span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> 5 min</span>
+</div>
+<p class="text-sm text-gray-500 mt-2">By Dr. Sarah Chen</p>
+</div>
+</div>
+<!-- Blog 2 -->
+<div onclick="openModal('blog-2')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white border border-gray-100">
+<div class="h-48" style="background:linear-gradient(135deg,#ea580c,#f59e0b)"></div>
+<div class="p-6">
+<span class="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-xs font-medium rounded-full mb-3">Career</span>
+<h3 class="text-lg font-bold mb-2 hover:text-emerald-600 transition">How to Build a Portfolio That Lands Your Dream Job</h3>
+<div class="flex items-center gap-4 text-sm text-gray-500">
+<span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> Jan 10, 2025</span>
+<span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> 7 min</span>
+</div>
+<p class="text-sm text-gray-500 mt-2">By Alex Kumar</p>
+</div>
+</div>
+<!-- Blog 3 -->
+<div onclick="openModal('blog-3')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white border border-gray-100">
+<div class="h-48" style="background:linear-gradient(135deg,#f43f5e,#ec4899)"></div>
+<div class="p-6">
+<span class="inline-block px-3 py-1 bg-rose-100 text-rose-700 text-xs font-medium rounded-full mb-3">AI & Education</span>
+<h3 class="text-lg font-bold mb-2 hover:text-emerald-600 transition">The Future of AI in Education: What Students Need to Know</h3>
+<div class="flex items-center gap-4 text-sm text-gray-500">
+<span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i> Jan 5, 2025</span>
+<span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i> 6 min</span>
+</div>
+<p class="text-sm text-gray-500 mt-2">By Prof. James Wilson</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ SECTION -->
+<section id="faq" class="py-20 bg-white">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Frequently Asked <span class="gradient-text">Questions</span></h2>
+<p class="text-gray-600">Find answers to the most common questions about SkillForge.</p>
+</div>
+<div class="space-y-4" id="faqContainer">
+<!-- FAQ 1 -->
+<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+<span>What is SkillForge and how does it work?</span>
+<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+</button>
+<div class="faq-answer">
+<p class="px-6 pb-4 text-gray-600">SkillForge is an online learning platform that offers expert-led courses in technology, design, data science, and more. Our platform features interactive video lessons, hands-on projects, quizzes, and community support. Simply sign up, choose a course, and start learning at your own pace from anywhere in the world.</p>
+</div>
+</div>
+<!-- FAQ 2 -->
+<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+<span>Are the courses free or paid?</span>
+<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+</button>
+<div class="faq-answer">
+<p class="px-6 pb-4 text-gray-600">SkillForge offers both free and premium courses. We have a selection of free courses to get you started, and premium courses start at affordable prices. We also offer frequent discounts, bundles, and a subscription plan that gives you unlimited access to all courses. Many courses offer free previews so you can try before you buy.</p>
+</div>
+</div>
+<!-- FAQ 3 -->
+<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+<span>Do I get a certificate after completing a course?</span>
+<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+</button>
+<div class="faq-answer">
+<p class="px-6 pb-4 text-gray-600">Yes! Upon successfully completing a course, you will receive a certificate of completion that you can share on LinkedIn, add to your resume, or include in your portfolio. Our certificates are recognized by employers in the industry and include a unique verification link to prove your achievement.</p>
+</div>
+</div>
+<!-- FAQ 4 -->
+<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+<span>Can I learn at my own pace?</span>
+<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+</button>
+<div class="faq-answer">
+<p class="px-6 pb-4 text-gray-600">Absolutely! All courses on SkillForge are self-paced, meaning you can learn whenever and wherever you want. There are no deadlines or fixed schedules. Once you enroll in a course, you have lifetime access to all the materials, including any future updates. You can pause, rewind, and revisit lessons as many times as you need.</p>
+</div>
+</div>
+<!-- FAQ 5 -->
+<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+<span>What if I have doubts or get stuck during a course?</span>
+<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+</button>
+<div class="faq-answer">
+<p class="px-6 pb-4 text-gray-600">We have a vibrant community forum where you can ask questions, share your progress, and get help from fellow learners and mentors. Additionally, many courses include Q&A sections where you can directly ask the instructor. Our support team is also available 24/7 to assist you with any technical or course-related issues.</p>
+</div>
+</div>
+<!-- FAQ 6 -->
+<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="toggleFaq(this)" class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition">
+<span>How do I get started?</span>
+<i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform faq-icon"></i>
+</button>
+<div class="faq-answer">
+<p class="px-6 pb-4 text-gray-600">Getting started is easy! Simply click the "Get Started" button, create your free account, and browse our course catalog. You can start with one of our free courses to get a feel for the platform, or dive right into a premium course that interests you. No credit card required to sign up!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- NEWSLETTER SECTION -->
+<section id="newsletter" class="py-20 newsletter-gradient text-white">
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<i data-lucide="mail" class="w-12 h-12 mx-auto mb-6 opacity-80"></i>
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Stay Updated</h2>
+<p class="text-emerald-100 mb-8 max-w-lg mx-auto">Subscribe to our newsletter and never miss out on new courses, special offers, and learning tips delivered straight to your inbox.</p>
+<div id="newsletterForm">
+<div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+<input id="emailInput" type="email" placeholder="Enter your email address" class="flex-1 px-5 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+<button onclick="subscribeNewsletter()" class="px-6 py-3 bg-white text-emerald-600 font-semibold rounded-lg hover:bg-emerald-50 transition">Subscribe</button>
+</div>
+<p class="text-emerald-200 text-sm">No spam, unsubscribe anytime. We respect your privacy.</p>
+</div>
+<div id="newsletterSuccess" class="hidden">
+<div class="bg-white/20 rounded-xl p-8 inline-block">
+<i data-lucide="check-circle" class="w-12 h-12 mx-auto mb-4"></i>
+<h3 class="text-xl font-bold mb-2">You're Subscribed!</h3>
+<p class="text-emerald-100">Thank you for subscribing. Check your inbox for a welcome email.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-20 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-4xl font-bold mb-4">Get in <span class="gradient-text">Touch</span></h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Have a question or want to learn more? We'd love to hear from you. Reach out and we'll get back to you as soon as possible.</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12">
+<!-- Contact Info -->
+<div>
+<div class="space-y-6 mb-8">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+<i data-lucide="map-pin" class="w-5 h-5 text-emerald-600"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Our Office</h4>
+<p class="text-gray-600">123 Education Street, Learning City, LC 10001</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+<i data-lucide="phone" class="w-5 h-5 text-emerald-600"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Phone</h4>
+<p class="text-gray-600">+1 (555) 123-4567</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+<i data-lucide="mail" class="w-5 h-5 text-emerald-600"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Email</h4>
+<p class="text-gray-600">hello@skillforge.com</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+<i data-lucide="clock" class="w-5 h-5 text-emerald-600"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Business Hours</h4>
+<p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM (EST)</p>
+</div>
+</div>
+</div>
+<!-- Social Media -->
+<div>
+<h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
+<div class="flex gap-3">
+<a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-emerald-100 hover:text-emerald-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+<a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-emerald-100 hover:text-emerald-600 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+<a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-emerald-100 hover:text-emerald-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+<a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-emerald-100 hover:text-emerald-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+<a href="#" class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-emerald-100 hover:text-emerald-600 transition"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div>
+<form onsubmit="handleContactSubmit(event)" class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+<input type="text" required placeholder="John Doe" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+<input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+<input type="text" required placeholder="How can we help?" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+<textarea rows="5" required placeholder="Tell us more..." class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"></textarea>
+</div>
+<button type="submit" class="w-full px-6 py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition">Send Message</button>
+</form>
+<div id="contactSuccess" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-700 text-center">
+<p class="font-semibold">Message sent successfully!</p>
+<p class="text-sm">We'll get back to you within 24 hours.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</div><!-- end main-content -->
+
+<!-- FOOTER -->
+<footer id="footer" class="bg-gray-900 text-white mt-auto">
+<!-- Back to top -->
+<div class="text-center py-6 border-b border-gray-800">
+<a href="#home" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 text-sm font-medium transition">
+<i data-lucide="arrow-up" class="w-4 h-4"></i> Back to Top
+</a>
+</div>
+<!-- Footer Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+<!-- Brand -->
+<div class="col-span-2">
+<div class="flex items-center gap-2 text-xl font-bold mb-4">
+<span class="text-2xl">🎓</span>
+<span class="gradient-text">SkillForge</span>
+</div>
+<p class="text-gray-400 text-sm mb-4 max-w-xs">Empowering learners worldwide with expert-led courses and a supportive community. Transform your career with SkillForge.</p>
+<div class="flex items-center gap-2 text-sm text-gray-400 mb-2">
+<i data-lucide="mail" class="w-4 h-4"></i>
+<span>hello@skillforge.com</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-gray-400 mb-2">
+<i data-lucide="phone" class="w-4 h-4"></i>
+<span>+1 (555) 123-4567</span>
+</div>
+<div class="flex gap-3 mt-4">
+<a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-emerald-600 hover:text-white transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+<a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-emerald-600 hover:text-white transition"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+<a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-emerald-600 hover:text-white transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+<a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-emerald-600 hover:text-white transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+<a href="#" class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-emerald-600 hover:text-white transition"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="font-semibold text-white mb-4">Quick Links</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#home" class="text-gray-400 hover:text-emerald-400 transition">Home</a></li>
+<li><a href="#features" class="text-gray-400 hover:text-emerald-400 transition">Features</a></li>
+<li><a href="#courses" class="text-gray-400 hover:text-emerald-400 transition">Courses</a></li>
+<li><a href="#testimonials" class="text-gray-400 hover:text-emerald-400 transition">Testimonials</a></li>
+<li><a href="#blog" class="text-gray-400 hover:text-emerald-400 transition">Blog</a></li>
+<li><a href="#faq" class="text-gray-400 hover:text-emerald-400 transition">FAQ</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-emerald-400 transition">Contact</a></li>
+</ul>
+</div>
+<!-- Courses -->
+<div>
+<h4 class="font-semibold text-white mb-4">Courses</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" onclick="openModal('course-1');return false" class="text-gray-400 hover:text-emerald-400 transition">Web Development</a></li>
+<li><a href="#" onclick="openModal('course-2');return false" class="text-gray-400 hover:text-emerald-400 transition">Data Science</a></li>
+<li><a href="#" onclick="openModal('course-3');return false" class="text-gray-400 hover:text-emerald-400 transition">UI/UX Design</a></li>
+<li><a href="#" onclick="openModal('course-4');return false" class="text-gray-400 hover:text-emerald-400 transition">Mobile Dev</a></li>
+<li><a href="#" onclick="openModal('course-5');return false" class="text-gray-400 hover:text-emerald-400 transition">AI & ML</a></li>
+<li><a href="#" onclick="openModal('course-6');return false" class="text-gray-400 hover:text-emerald-400 transition">Full-Stack Dev</a></li>
+</ul>
+</div>
+<!-- Resources -->
+<div>
+<h4 class="font-semibold text-white mb-4">Resources</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#blog" class="text-gray-400 hover:text-emerald-400 transition">Blog</a></li>
+<li><a href="#faq" class="text-gray-400 hover:text-emerald-400 transition">Help Center</a></li>
+<li><a href="#" onclick="openModal('about');return false" class="text-gray-400 hover:text-emerald-400 transition">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-emerald-400 transition">Careers</a></li>
+<li><a href="#" class="text-gray-400 hover:text-emerald-400 transition">Affiliate Program</a></li>
+</ul>
+</div>
+<!-- Legal -->
+<div>
+<h4 class="font-semibold text-white mb-4">Legal</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" onclick="openModal('privacy');return false" class="text-gray-400 hover:text-emerald-400 transition">Privacy Policy</a></li>
+<li><a href="#" onclick="openModal('terms');return false" class="text-gray-400 hover:text-emerald-400 transition">Terms of Service</a></li>
+<li><a href="#" onclick="openModal('cookies');return false" class="text-gray-400 hover:text-emerald-400 transition">Cookie Policy</a></li>
+<li><a href="#" onclick="openModal('refund');return false" class="text-gray-400 hover:text-emerald-400 transition">Refund Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Sitemap Bar -->
+<div class="border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<p class="text-xs text-gray-500 mb-2 uppercase font-semibold tracking-wider">Complete Sitemap</p>
+<div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+<a href="#home" class="hover:text-emerald-400 transition">Home</a><span>|</span>
+<a href="#features" class="hover:text-emerald-400 transition">Features</a><span>|</span>
+<a href="#courses" class="hover:text-emerald-400 transition">Courses</a><span>|</span>
+<a href="#stats" class="hover:text-emerald-400 transition">Statistics</a><span>|</span>
+<a href="#testimonials" class="hover:text-emerald-400 transition">Testimonials</a><span>|</span>
+<a href="#blog" class="hover:text-emerald-400 transition">Blog</a><span>|</span>
+<a href="#faq" class="hover:text-emerald-400 transition">FAQ</a><span>|</span>
+<a href="#newsletter" class="hover:text-emerald-400 transition">Newsletter</a><span>|</span>
+<a href="#contact" class="hover:text-emerald-400 transition">Contact</a><span>|</span>
+<a href="#" onclick="openModal('about');return false" class="hover:text-emerald-400 transition">About</a><span>|</span>
+<a href="#" onclick="openModal('privacy');return false" class="hover:text-emerald-400 transition">Privacy Policy</a><span>|</span>
+<a href="#" onclick="openModal('terms');return false" class="hover:text-emerald-400 transition">Terms of Service</a><span>|</span>
+<a href="#" onclick="openModal('cookies');return false" class="hover:text-emerald-400 transition">Cookie Policy</a><span>|</span>
+<a href="#" onclick="openModal('refund');return false" class="hover:text-emerald-400 transition">Refund Policy</a>
+</div>
+</div>
+</div>
+<!-- Copyright -->
+<div class="border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center">
+<p class="text-sm text-gray-500">&copy; 2025 SkillForge. Made with ❤️ for learners everywhere.</p>
+</div>
+</div>
+</footer>
+
+<!-- MODAL OVERLAY -->
+<div id="modalOverlay" class="overlay hidden fixed inset-0 z-[70] bg-black/50 flex items-start justify-center pt-4 pb-4 overflow-y-auto">
+<div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl mx-4" style="max-height:95vh">
+<!-- Modal Navbar -->
+<div class="sticky top-0 z-10 bg-white border-b border-gray-200 rounded-t-2xl px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button onclick="closeModal()" class="p-1 hover:bg-gray-100 rounded-lg transition">
+<i data-lucide="arrow-left" class="w-5 h-5 text-gray-600"></i>
+</button>
+<a href="#home" class="flex items-center gap-2 font-bold">
+<span>🎓</span>
+<span class="gradient-text">SkillForge</span>
+</a>
+</div>
+<div class="flex items-center gap-3">
+<span id="modalPageLabel" class="text-sm text-gray-500"></span>
+<button onclick="closeModal()" class="p-2 hover:bg-gray-100 rounded-lg transition">
+<i data-lucide="x" class="w-5 h-5 text-gray-600"></i>
+</button>
+</div>
+</div>
+<!-- Modal Content -->
+<div id="modalContent" class="modal-content overflow-y-auto px-6 py-8" style="max-height:calc(95vh - 65px)">
+</div>
+</div>
+</div>
+
+<script>
+// ==================== DATA ====================
+const courses = [
+{id:1,title:"Complete Web Development Bootcamp",category:"Web Development",instructor:"Dr. Sarah Chen",rating:4.9,students:12500,duration:"42 hours",price:"Free",oldPrice:"$199.99",level:"Beginner",language:"English",tags:["HTML","CSS","JavaScript","React","Node.js"],gradient:"#059669,#0d9488",desc:"Learn web development from scratch. This comprehensive bootcamp covers everything from HTML and CSS basics to advanced React and Node.js. Build real-world projects and become a full-stack developer.",learn:["Build responsive websites with HTML5 and CSS3","Master JavaScript ES6+ and modern frameworks","Create dynamic web apps with React","Build RESTful APIs with Node.js and Express","Deploy applications to production","Work with databases and version control"],curriculum:[{title:"Getting Started with HTML & CSS",topics:["HTML5 structure and semantics","CSS3 styling and Flexbox","Responsive design with media queries","CSS Grid layouts"]},{title:"JavaScript Fundamentals",topics:["Variables, data types, and operators","Functions and scope","DOM manipulation","Events and event handling"]},{title:"React Development",topics:["Components and JSX","State and props","Hooks (useState, useEffect)","React Router"]},{title:"Backend with Node.js",topics:["Node.js basics and npm","Express.js framework","RESTful API design","Authentication and authorization"]},{title:"Projects & Deployment",topics:["Building a full-stack app","Database integration (MongoDB)","Deployment to cloud platforms","Performance optimization"]}],requirements:["No programming experience needed","A computer with internet access","A text editor (VS Code recommended)","Willingness to learn and practice"],updated:"January 2025"},
+{id:2,title:"Python for Data Science & Analytics",category:"Data Science",instructor:"Prof. James Wilson",rating:4.8,students:8900,duration:"38 hours",price:"$49.99",oldPrice:"$149.99",level:"Intermediate",language:"English",tags:["Python","Pandas","NumPy","Matplotlib"],gradient:"#0d9488,#0891b2",desc:"Master Python for data science and analytics. Learn to manipulate, analyze, and visualize data using powerful Python libraries. Perfect for aspiring data scientists and analysts.",learn:["Master Python programming for data analysis","Use Pandas for data manipulation","Perform statistical analysis with NumPy","Create stunning data visualizations","Work with real-world datasets","Build data-driven insights"],curriculum:[{title:"Python Basics Review",topics:["Python data structures","Functions and modules","File handling","Error handling"]},{title:"Data Manipulation with Pandas",topics:["DataFrames and Series","Data cleaning and preprocessing","Merging and joining datasets","Groupby operations"]},{title:"Numerical Computing with NumPy",topics:["NumPy arrays","Mathematical operations","Linear algebra","Random number generation"]},{title:"Data Visualization",topics:["Matplotlib basics","Seaborn statistical plots","Interactive visualizations","Dashboard creation"]},{title:"Real-World Projects",topics:["Analyzing sales data","Customer segmentation","Time series analysis","Predictive modeling basics"]}],requirements:["Basic Python knowledge","Understanding of statistics fundamentals","Familiarity with Jupyter notebooks","Computer with at least 4GB RAM"],updated:"December 2024"},
+{id:3,title:"UI/UX Design Masterclass",category:"Design",instructor:"Emily Rodriguez",rating:4.9,students:6700,duration:"28 hours",price:"$39.99",oldPrice:"$129.99",level:"Beginner",language:"English",tags:["Figma","Prototyping","User Research"],gradient:"#ea580c,#f59e0b",desc:"Learn UI/UX design from scratch. Master Figma, understand design thinking, and create beautiful, user-friendly interfaces that delight users and drive business results.",learn:["Master Figma for UI design","Understand design thinking methodology","Conduct user research and testing","Create wireframes and prototypes","Design responsive layouts","Build a professional design portfolio"],curriculum:[{title:"Design Fundamentals",topics:["Color theory and typography","Layout principles","Visual hierarchy","Design systems"]},{title:"User Research",topics:["User interviews and surveys","Persona creation","User journey mapping","Usability testing"]},{title:"Figma Mastery",topics:["Figma interface and tools","Components and styles","Auto layout","Prototyping and interactions"]},{title:"UI Design Patterns",topics:["Navigation patterns","Form design","Mobile-first design","Accessibility design"]},{title:"Portfolio Project",topics:["End-to-end app design","Design case study","Portfolio presentation","Getting design feedback"]}],requirements:["No design experience required","A computer with internet access","Figma account (free version works)","Creative mindset and curiosity"],updated:"January 2025"},
+{id:4,title:"React Native Mobile App Development",category:"Mobile Dev",instructor:"Alex Kumar",rating:4.7,students:5400,duration:"35 hours",price:"$44.99",oldPrice:"$139.99",level:"Intermediate",language:"English",tags:["React Native","Expo","JavaScript"],gradient:"#dc2626,#f97316",desc:"Build cross-platform mobile apps with React Native and Expo. Learn to create stunning iOS and Android applications using a single codebase and deploy to both app stores.",learn:["Build cross-platform mobile apps","Master React Native components","Use Expo for rapid development","Implement navigation and state management","Work with native device features","Publish to App Store and Google Play"],curriculum:[{title:"React Native Basics",topics:["Setting up the environment","Core components","Styling in React Native","Flexbox layout"]},{title:"Expo Framework",topics:["Expo CLI and tools","Expo modules","OTA updates","Expo Dev Client"]},{title:"Navigation",topics:["React Navigation setup","Stack navigation","Tab navigation","Drawer navigation"]},{title:"State Management",topics:["Context API","Redux fundamentals","Async storage","API integration"]},{title:"Advanced Features",topics:["Camera and media","Push notifications","Animations","App deployment"]}],requirements:["Basic JavaScript/React knowledge","Node.js installed on your computer","Understanding of mobile app concepts","A smartphone for testing (optional)"],updated:"November 2024"},
+{id:5,title:"Machine Learning A-Z: From Zero to Hero",category:"AI & ML",instructor:"Dr. Michael Park",rating:4.8,students:7800,duration:"45 hours",price:"$59.99",oldPrice:"$199.99",level:"Advanced",language:"English",tags:["TensorFlow","Scikit-learn","Deep Learning"],gradient:"#7c3aed,#ec4899",desc:"Comprehensive machine learning course covering everything from basics to advanced deep learning. Build real ML models, understand the math, and deploy AI solutions.",learn:["Understand machine learning fundamentals","Master supervised and unsupervised learning","Build neural networks with TensorFlow","Implement deep learning models","Perform feature engineering","Deploy ML models to production"],curriculum:[{title:"ML Fundamentals",topics:["Types of machine learning","Linear regression","Logistic regression","Evaluation metrics"]},{title:"Supervised Learning",topics:["Decision trees and random forests","Support vector machines","K-nearest neighbors","Ensemble methods"]},{title:"Unsupervised Learning",topics:["K-means clustering","Hierarchical clustering","PCA and dimensionality reduction","Anomaly detection"]},{title:"Deep Learning with TensorFlow",topics:["Neural network basics","Convolutional neural networks","Recurrent neural networks","Transfer learning"]},{title:"ML in Production",topics:["Model deployment with Flask","Cloud deployment (AWS/GCP)","Model monitoring","MLOps fundamentals"]}],requirements:["Strong Python programming skills","Basic understanding of linear algebra","Familiarity with statistics and probability","Experience with Jupyter notebooks"],updated:"December 2024"},
+{id:6,title:"Full-Stack Node.js & MongoDB",category:"Web Development",instructor:"Priya Sharma",rating:4.6,students:4300,duration:"32 hours",price:"$34.99",oldPrice:"$129.99",level:"Intermediate",language:"English",tags:["Node.js","MongoDB","Express","API"],gradient:"#0f766e,#059669",desc:"Become a full-stack developer with Node.js and MongoDB. Learn to build scalable backend applications, RESTful APIs, and integrate with frontend frameworks.",learn:["Build scalable Node.js applications","Design RESTful APIs with Express","Master MongoDB database design","Implement authentication and authorization","Handle file uploads and real-time data","Deploy full-stack applications"],curriculum:[{title:"Node.js Fundamentals",topics:["Node.js architecture","Modules and packages","Event loop","Streams and buffers"]},{title:"Express.js Framework",topics:["Routing and middleware","Error handling","Template engines","File uploads"]},{title:"MongoDB Database",topics:["CRUD operations","Schema design with Mongoose","Aggregation pipeline","Indexing and performance"]},{title:"Authentication & Security",topics:["JWT authentication","OAuth integration","Password hashing","Security best practices"]},{title:"Real-Time & Deployment",topics:["WebSockets with Socket.io","Redis caching","Docker containerization","CI/CD pipeline"]}],requirements:["Basic JavaScript knowledge","Understanding of HTTP protocols","Familiarity with command line","Computer with 8GB RAM recommended"],updated:"January 2025"}
+];
+
+const blogPosts = {
+"blog-1":{
+title:"Top 10 Programming Languages to Learn in 2025",
+category:"Tech Trends",date:"January 15, 2025",readTime:"5 min",author:"Dr. Sarah Chen",authorRole:"Lead Instructor",
+gradient:"linear-gradient(135deg,#059669,#0d9488)",
+content:`<p class="text-gray-600 mb-6">As we step into 2025, the programming landscape continues to evolve rapidly. Whether you're a beginner starting your coding journey or an experienced developer looking to expand your skill set, choosing the right programming language can significantly impact your career trajectory. Here are the top 10 programming languages you should consider learning this year.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">1. Python</h3>
+<p class="text-gray-600 mb-4">Python continues to dominate as the most versatile and beginner-friendly programming language. With applications in web development, data science, artificial intelligence, and automation, Python's simplicity and extensive library ecosystem make it an essential language for any developer's toolkit.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">2. JavaScript</h3>
+<p class="text-gray-600 mb-4">JavaScript remains the backbone of web development. With frameworks like React, Vue, and Angular, along with Node.js for backend development, JavaScript offers full-stack capabilities. The rise of TypeScript has further strengthened JavaScript's position in enterprise development.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">3. Rust</h3>
+<p class="text-gray-600 mb-4">Rust has been steadily gaining popularity due to its focus on memory safety and performance. It's increasingly being adopted for system programming, WebAssembly, and even kernel development. Major companies like Microsoft, Google, and Amazon are investing heavily in Rust.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">4. Go (Golang)</h3>
+<p class="text-gray-600 mb-4">Go's simplicity, concurrency support, and excellent performance make it ideal for cloud-native applications, microservices, and DevOps tools. Companies like Docker, Kubernetes, and Terraform are built with Go, making it a valuable skill for infrastructure and backend engineers.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">5. TypeScript</h3>
+<p class="text-gray-600 mb-4">TypeScript has become the standard for large-scale JavaScript applications. Its static typing system catches errors at compile time, improves developer experience, and makes codebases more maintainable. Almost all major frameworks now have first-class TypeScript support.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">6. Kotlin</h3>
+<p class="text-gray-600 mb-4">As Google's preferred language for Android development, Kotlin continues to grow. Its modern syntax, null safety features, and seamless interoperability with Java make it a must-learn for mobile developers. Kotlin Multiplatform is also expanding its reach to iOS and web.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">7. Swift</h3>
+<p class="text-gray-600 mb-4">Swift is the go-to language for Apple ecosystem development. With SwiftUI making UI development more intuitive and Swift's continuous improvements in performance and developer ergonomics, it remains essential for iOS, macOS, watchOS, and tvOS development.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">8. C#</h3>
+<p class="text-gray-600 mb-4">C# remains a powerhouse in enterprise development, game development with Unity, and cloud applications with .NET. With .NET 8's continued evolution and cross-platform capabilities, C# developers are in high demand across various industries.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">9. SQL</h3>
+<p class="text-gray-600 mb-4">While not a "new" language, SQL remains fundamental for any developer working with data. Understanding advanced SQL, database optimization, and working with modern database systems like PostgreSQL and MySQL is crucial for backend and data engineering roles.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">10. Zig</h3>
+<p class="text-gray-600 mb-4">Zig is an emerging systems programming language that's gaining attention as a modern alternative to C. With its focus on performance, safety, and simplicity, Zig is being used to build critical infrastructure tools and is worth watching as it matures.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Conclusion</h3>
+<p class="text-gray-600 mb-4">The key is not to learn all of these languages but to choose the ones that align with your career goals and interests. Start with one or two that match your desired path, build projects, and gradually expand your skill set. Remember, the best programming language is the one that helps you solve problems effectively.</p>`
+},
+"blog-2":{
+title:"How to Build a Portfolio That Lands Your Dream Job",
+category:"Career",date:"January 10, 2025",readTime:"7 min",author:"Alex Kumar",authorRole:"Career Coach",
+gradient:"linear-gradient(135deg,#ea580c,#f59e0b)",
+content:`<p class="text-gray-600 mb-6">In today's competitive job market, a strong portfolio can be the difference between getting your dream job and being overlooked. Your portfolio is your proof of competence — it shows employers what you can actually do, not just what you claim to know. Here's a comprehensive guide to building a portfolio that stands out.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Step 1: Choose the Right Projects</h3>
+<p class="text-gray-600 mb-4">Quality over quantity. Select 3-5 projects that showcase a range of skills and demonstrate your ability to solve real problems. Include at least one full-stack project, one that solves a real-world problem, and one that shows your unique creative approach. Each project should tell a story about your growth and capabilities as a developer.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Step 2: Document Your Process</h3>
+<p class="text-gray-600 mb-4">Don't just show the final product — document your journey. Explain your thought process, the challenges you faced, the decisions you made, and what you learned. Employers value problem-solvers, and showing your process demonstrates critical thinking. Include wireframes, code snippets, and architecture decisions.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Step 3: Make It Visually Appealing</h3>
+<p class="text-gray-600 mb-4">First impressions matter. Your portfolio itself should be a testament to your skills. Use clean design, consistent typography, and intuitive navigation. If you're a developer, build your portfolio from scratch. If you're a designer, make it visually stunning. Ensure it's responsive and accessible.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Step 4: Include Live Demos</h3>
+<p class="text-gray-600 mb-4">Employers want to interact with your work. Host your projects on platforms like Vercel, Netlify, or GitHub Pages so recruiters can test them directly. Provide clear instructions on how to use each project and highlight key features. A working demo is worth a thousand screenshots.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Step 5: Write Case Studies</h3>
+<p class="text-gray-600 mb-4">For your best projects, write detailed case studies that cover the problem, your solution, the technologies used, challenges overcome, and results achieved. Use the STAR method (Situation, Task, Action, Result) to structure your case studies. Include metrics and measurable outcomes where possible.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Step 6: Get Feedback and Iterate</h3>
+<p class="text-gray-600 mb-4">Share your portfolio with mentors, peers, and even recruiters for feedback. Join communities like GitHub, Dev.to, or design forums to get diverse perspectives. Continuously update your portfolio as you learn new skills and complete new projects. A portfolio is never truly "finished."</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Final Tips</h3>
+<p class="text-gray-600 mb-4">Keep your portfolio updated, make sure all links work, optimize for SEO, and include clear contact information. Your portfolio URL should be on your resume, LinkedIn profile, and email signature. Remember, your portfolio is often the first impression you make — make it count!</p>`
+},
+"blog-3":{
+title:"The Future of AI in Education: What Students Need to Know",
+category:"AI & Education",date:"January 5, 2025",readTime:"6 min",author:"Prof. James Wilson",authorRole:"AI Researcher",
+gradient:"linear-gradient(135deg,#f43f5e,#ec4899)",
+content:`<p class="text-gray-600 mb-6">Artificial intelligence is transforming every industry, and education is no exception. From personalized learning paths to AI-powered tutoring systems, the intersection of AI and education is creating unprecedented opportunities for students and educators alike. Here's what you need to know about the future of AI in education.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Personalized Learning at Scale</h3>
+<p class="text-gray-600 mb-4">AI-powered learning platforms can now adapt to each student's learning style, pace, and knowledge gaps. These systems analyze how you learn, what you struggle with, and what motivates you, then create customized learning paths that maximize your efficiency. Platforms like SkillForge are already implementing these features to help students learn more effectively.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">AI as a Learning Assistant</h3>
+<p class="text-gray-600 mb-4">Imagine having a personal tutor available 24/7 that can explain complex concepts, provide practice problems, and offer instant feedback. AI chatbots and virtual assistants are becoming sophisticated enough to serve as effective study companions. They can help with everything from answering quick questions to guiding you through complex problem-solving processes.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Automated Assessment and Feedback</h3>
+<p class="text-gray-600 mb-4">AI is revolutionizing how student work is assessed. From automated essay scoring to code review, AI systems can provide detailed, objective feedback faster than human graders. This means students get more practice opportunities and faster feedback loops, accelerating the learning process. However, human oversight remains essential for nuanced evaluation.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Skills for the AI Era</h3>
+<p class="text-gray-600 mb-4">As AI becomes more prevalent, certain skills become increasingly valuable. Critical thinking, creativity, emotional intelligence, and complex problem-solving are areas where humans excel over AI. Students should focus on developing these "human" skills while also gaining technical literacy to work alongside AI tools effectively.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Ethical Considerations</h3>
+<p class="text-gray-600 mb-4">The use of AI in education raises important ethical questions about data privacy, algorithmic bias, and the digital divide. Students and educators must understand these issues to ensure AI is used responsibly. Learning about AI ethics is becoming as important as learning about AI technology itself.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Preparing for the Future</h3>
+<p class="text-gray-600 mb-4">The future of education will be a partnership between humans and AI. Students who learn to leverage AI tools while developing their unique human capabilities will have a significant advantage. Start by exploring AI-powered learning platforms, understanding how AI works, and thinking critically about how these technologies shape your learning journey. The key is to be an active participant in shaping this future, not a passive observer.</p>`
+}
+};
+
+const legalPages = {
+privacy:{
+title:"Privacy Policy",
+icon:"shield",
+updated:"January 1, 2025",
+content:`<div class="prose max-w-none">
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1. Information We Collect</h3>
+<p class="text-gray-600 mb-4">We collect information you provide directly to us, such as when you create an account, make a purchase, subscribe to our newsletter, contact us, or otherwise communicate with us. This includes your name, email address, password, payment information, and any other information you choose to provide.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">2. How We Use Your Information</h3>
+<p class="text-gray-600 mb-4">We use the information we collect to provide, maintain, and improve our services, process transactions, send you technical notices and support messages, respond to your comments and questions, and provide news and information about our courses and platform. We may also use your information to send promotional communications, such as information about courses, offers, and events.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">3. Information Sharing</h3>
+<p class="text-gray-600 mb-4">We do not sell, trade, or otherwise transfer your personal information to outside parties except to trusted third parties who assist us in operating our platform, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">4. Data Security</h3>
+<p class="text-gray-600 mb-4">We implement a variety of security measures to maintain the safety of your personal information when you submit or access your information. We use industry-standard encryption technologies when transferring and receiving data exchanged with our site. Our servers are housed in secure facilities, and our security measures are regularly reviewed and updated.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">5. Cookies</h3>
+<p class="text-gray-600 mb-4">We use cookies to understand and save your preferences for future visits, keep track of advertisements, and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future. You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies through your browser settings.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">6. Your Rights</h3>
+<p class="text-gray-600 mb-4">You have the right to access, update, or delete your personal information at any time. You can do this by logging into your account or contacting us directly. You may also opt out of receiving promotional communications from us by following the unsubscribe link in any email we send or by contacting us.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">7. Changes to This Policy</h3>
+<p class="text-gray-600 mb-4">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+</div>`
+},
+terms:{
+title:"Terms of Service",
+icon:"file-text",
+updated:"January 1, 2025",
+content:`<div class="prose max-w-none">
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1. Acceptance of Terms</h3>
+<p class="text-gray-600 mb-4">By accessing and using SkillForge, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this platform. The materials contained in this platform are protected by applicable copyright and trademark law.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">2. Use License</h3>
+<p class="text-gray-600 mb-4">Permission is granted to temporarily access the materials on SkillForge for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not modify or copy the materials, use the materials for any commercial purpose, attempt to decompile or reverse engineer any software contained on the platform, remove any copyright or other proprietary notations, or transfer the materials to another person.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">3. User Accounts</h3>
+<p class="text-gray-600 mb-4">You are responsible for maintaining the confidentiality of your account and password and for restricting access to your computer. You agree to accept responsibility for all activities that occur under your account. You must immediately notify SkillForge of any unauthorized use of your account or any other breach of security.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">4. Course Content</h3>
+<p class="text-gray-600 mb-4">All course content, including but not limited to videos, text, graphics, and code examples, is the property of SkillForge or its content creators and is protected by intellectual property laws. You may not reproduce, distribute, modify, create derivative works of, publicly display, or commercially exploit any course content without our express written permission.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">5. Payments and Refunds</h3>
+<p class="text-gray-600 mb-4">Certain courses and features on SkillForge require payment. All prices are listed in USD and are subject to change. We offer a 30-day money-back guarantee for most courses. Please refer to our Refund Policy for detailed information on our refund process and eligibility criteria.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">6. Limitation of Liability</h3>
+<p class="text-gray-600 mb-4">In no event shall SkillForge or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on SkillForge's platform, even if SkillForge has been notified orally or in writing of the possibility of such damage.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">7. Changes to Terms</h3>
+<p class="text-gray-600 mb-4">SkillForge reserves the right to modify or replace these terms at any time. Material changes will be notified via email or a prominent notice on our platform. Your continued use of the platform after any changes constitutes acceptance of the new terms.</p>
+</div>`
+},
+cookies:{
+title:"Cookie Policy",
+icon:"cookie",
+updated:"January 1, 2025",
+content:`<div class="prose max-w-none">
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1. What Are Cookies</h3>
+<p class="text-gray-600 mb-4">Cookies are small text files that are stored on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and to provide information to the owners of the site. Cookies help us remember your preferences, understand how you use our site, and improve your browsing experience.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">2. How We Use Cookies</h3>
+<p class="text-gray-600 mb-4">We use cookies for a variety of purposes, including to remember your login details, track your progress through courses, understand how you interact with our platform, personalize your experience, analyze site traffic and usage patterns, and deliver relevant content and advertisements. We use both session cookies (which expire when you close your browser) and persistent cookies (which stay on your device until they expire or you delete them).</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">3. Types of Cookies We Use</h3>
+<p class="text-gray-600 mb-4"><strong>Essential Cookies:</strong> These are necessary for the platform to function properly. They enable core functionality such as security, network management, and accessibility.<br><strong>Analytics Cookies:</strong> These help us understand how visitors interact with our platform by collecting and reporting information anonymously.<br><strong>Functionality Cookies:</strong> These enable personalized features and remember your preferences such as language, region, and display settings.<br><strong>Marketing Cookies:</strong> These are used to track visitors across websites to display relevant advertisements.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">4. Managing Cookies</h3>
+<p class="text-gray-600 mb-4">You can control and manage cookies in various ways. Most web browsers allow you to control cookies through their settings. You can set your browser to refuse all cookies, accept only certain cookies, or alert you when a cookie is being set. Please note that removing or blocking cookies may impact your user experience and parts of our platform may no longer be fully accessible.</p>
+</div>`
+},
+refund:{
+title:"Refund Policy",
+icon:"rotate-ccw",
+updated:"January 1, 2025",
+content:`<div class="prose max-w-none">
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1. Money-Back Guarantee</h3>
+<p class="text-gray-600 mb-4">We offer a 30-day money-back guarantee on all paid courses. If you are not satisfied with your purchase for any reason, you can request a full refund within 30 days of purchase. We believe in the quality of our courses and want you to feel confident in your investment.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">2. Eligibility</h3>
+<p class="text-gray-600 mb-4">To be eligible for a refund, your request must meet the following conditions: the refund request is made within 30 days of the original purchase date, you have completed less than 50% of the course content, and this is your first refund request for this particular course. Refund requests for courses accessed more than 30 days after purchase or where more than 50% of the content has been completed may be considered on a case-by-case basis.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">3. How to Request a Refund</h3>
+<p class="text-gray-600 mb-4">To request a refund, please contact our support team at support@skillforge.com with your order number and the reason for your refund. Refund requests are typically processed within 5-10 business days. The refund will be issued to the original payment method used for the purchase. Please allow an additional 5-10 business days for the refund to appear on your statement, depending on your payment provider.</p>
+<h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">4. Exceptions</h3>
+<p class="text-gray-600 mb-4">Refunds are not available for subscription payments after the initial 30-day period, gift certificates, promotional bundles that have been partially redeemed, or courses that have been completed in full. If you have any questions about our refund policy, please don't hesitate to contact us at support@skillforge.com.</p>
+</div>`
+}
+};
+
+// ==================== STATE ====================
+let currentFilter = 'All';
+let mobileMenuOpen = false;
+
+// ==================== MOBILE MENU ====================
+function toggleMobileMenu(){
+const menu = document.getElementById('mobileMenu');
+mobileMenuOpen = !mobileMenuOpen;
+if(mobileMenuOpen){
+menu.classList.add('open');
+document.body.style.overflow='hidden';
+}else{
+menu.classList.remove('open');
+document.body.style.overflow='';
+}
+}
+
+// ==================== SEARCH TOGGLE ====================
+function toggleSearch(){
+const input = document.getElementById('searchInput');
+input.classList.toggle('open');
+if(input.classList.contains('open')) input.focus();
+}
+
+// ==================== SITEMAP DROPDOWN ====================
+function toggleSitemapDropdown(){
+document.getElementById('sitemapDropdown').classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+if(!e.target.closest('.relative')) document.getElementById('sitemapDropdown')?.classList.remove('open');
+});
+
+// ==================== COURSE RENDERING ====================
+function renderCourses(){
+const grid = document.getElementById('courseGrid');
+const noCourses = document.getElementById('noCourses');
+const searchTerm = document.getElementById('courseSearch').value.toLowerCase();
+const filtered = courses.filter(c => {
+const matchCategory = currentFilter === 'All' || c.category === currentFilter;
+const matchSearch = c.title.toLowerCase().includes(searchTerm) || c.instructor.toLowerCase().includes(searchTerm) || c.tags.some(t => t.toLowerCase().includes(searchTerm));
+return matchCategory && matchSearch;
+});
+if(filtered.length === 0){
+grid.classList.add('hidden');
+noCourses.classList.remove('hidden');
+}else{
+grid.classList.remove('hidden');
+noCourses.classList.add('hidden');
+}
+grid.innerHTML = filtered.map(c => {
+const stars = '★'.repeat(Math.floor(c.rating)) + (c.rating % 1 >= 0.5 ? '½' : '');
+return `<div onclick="openModal('course-${c.id}')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white border border-gray-100">
+<div class="h-44 relative" style="background:linear-gradient(135deg,${c.gradient})">
+<div class="absolute top-3 right-3 px-3 py-1 ${c.price==='Free'?'bg-emerald-500':'bg-white'} ${c.price==='Free'?'text-white':'text-emerald-600'} text-sm font-bold rounded-full">${c.price==='Free'?'Free':c.price}</div>
+<div class="absolute top-3 left-3 flex gap-1">${c.tags.slice(0,2).map(t=>`<span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">${t}</span>`).join('')}</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-gray-800 mb-1 line-clamp-2">${c.title}</h3>
+<p class="text-sm text-gray-500 mb-3">by ${c.instructor}</p>
+<div class="flex items-center gap-3 text-sm text-gray-500">
+<span class="text-yellow-500">${c.rating} ★</span>
+<span>${c.students.toLocaleString()} students</span>
+<span>${c.duration}</span>
+</div>
+<button class="mt-4 w-full py-2 border-2 border-emerald-600 text-emerald-600 font-medium rounded-lg hover:bg-emerald-600 hover:text-white transition text-sm">View Course</button>
+</div>
+</div>`;
+}).join('');
+lucide.createIcons();
+}
+
+function filterCourses(cat){
+currentFilter = cat;
+document.querySelectorAll('.filter-btn').forEach(btn => {
+btn.classList.remove('active','bg-emerald-600','text-white');
+btn.classList.add('bg-gray-100','text-gray-700');
+});
+event.target.classList.add('active','bg-emerald-600','text-white');
+event.target.classList.remove('bg-gray-100','text-gray-700');
+renderCourses();
+}
+
+function searchCourses(){renderCourses()}
+
+function clearCourseFilters(){
+currentFilter = 'All';
+document.getElementById('courseSearch').value = '';
+document.querySelectorAll('.filter-btn').forEach((btn,i) => {
+if(i===0){btn.classList.add('active','bg-emerald-600','text-white');btn.classList.remove('bg-gray-100','text-gray-700')}
+else{btn.classList.remove('active','bg-emerald-600','text-white');btn.classList.add('bg-gray-100','text-gray-700')}
+});
+renderCourses();
+}
+
+// ==================== FAQ ACCORDION ====================
+function toggleFaq(btn){
+const answer = btn.nextElementSibling;
+const icon = btn.querySelector('.faq-icon');
+const isOpen = answer.classList.contains('open');
+// Close all
+document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+if(!isOpen){
+answer.classList.add('open');
+icon.style.transform = 'rotate(180deg)';
+}
+}
+
+// ==================== NEWSLETTER ====================
+function subscribeNewsletter(){
+const email = document.getElementById('emailInput').value;
+if(!email || !email.includes('@')){document.getElementById('emailInput').classList.add('ring-2','ring-red-400');return}
+document.getElementById('newsletterForm').classList.add('hidden');
+document.getElementById('newsletterSuccess').classList.remove('hidden');
+}
+
+// ==================== CONTACT FORM ====================
+function handleContactSubmit(e){
+e.preventDefault();
+document.getElementById('contactSuccess').classList.remove('hidden');
+e.target.reset();
+setTimeout(()=>document.getElementById('contactSuccess').classList.add('hidden'),5000);
+}
+
+// ==================== STATS COUNTER ====================
+function animateCounters(){
+const counters = document.querySelectorAll('.counter');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+const counter = entry.target;
+const target = parseInt(counter.dataset.target);
+const duration = 2000;
+const step = target / (duration / 16);
+let current = 0;
+const updateCounter = () => {
+current += step;
+if(current < target){
+counter.textContent = Math.floor(current).toLocaleString();
+requestAnimationFrame(updateCounter);
+}else{
+counter.textContent = target.toLocaleString();
+}
+};
+updateCounter();
+observer.unobserve(counter);
+}
+});
+},{threshold:0.5});
+counters.forEach(c => observer.observe(c));
+}
+
+// ==================== MODAL SYSTEM ====================
+function openModal(pageType){
+const overlay = document.getElementById('modalOverlay');
+const content = document.getElementById('modalContent');
+const label = document.getElementById('modalPageLabel');
+document.body.style.overflow = 'hidden';
+overlay.classList.remove('hidden');
+overlay.style.opacity = '1';
+
+if(pageType.startsWith('course-')){
+const id = parseInt(pageType.split('-')[1]);
+const c = courses.find(x=>x.id===id);
+label.textContent = 'Course Details';
+content.innerHTML = renderCourseDetail(c);
+}else if(pageType.startsWith('blog-')){
+const post = blogPosts[pageType];
+label.textContent = 'Blog Article';
+content.innerHTML = renderBlogDetail(post);
+}else if(pageType === 'about'){
+label.textContent = 'About Us';
+content.innerHTML = renderAboutPage();
+}else if(legalPages[pageType]){
+const p = legalPages[pageType];
+label.textContent = p.title;
+content.innerHTML = renderLegalPage(p);
+}
+lucide.createIcons();
+}
+
+function closeModal(){
+const overlay = document.getElementById('modalOverlay');
+overlay.style.opacity = '0';
+setTimeout(()=>{
+overlay.classList.add('hidden');
+document.body.style.overflow = '';
+},300);
+}
+
+// Close on backdrop click
+document.getElementById('modalOverlay').addEventListener('click',function(e){
+if(e.target === this) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown',function(e){
+if(e.key === 'Escape'){
+closeModal();
+if(mobileMenuOpen) toggleMobileMenu();
+}
+});
+
+// ==================== RENDER FUNCTIONS ====================
+function renderCourseDetail(c){
+const stars = Array(5).fill(0).map((_,i) => `<i data-lucide="star" class="w-4 h-4 ${i < Math.floor(c.rating) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}"></i>`).join('');
+return `<div class="grid lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">${c.category}</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-700 text-xs font-medium rounded-full">${c.level}</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">Updated ${c.updated}</span>
+</div>
+<h2 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">${c.title}</h2>
+<p class="text-gray-600 mb-6">${c.desc}</p>
+<div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6 pb-6 border-b">
+<div class="flex items-center gap-1">${stars}<span class="ml-1 font-semibold">${c.rating}</span></div>
+<div class="flex items-center gap-1"><i data-lucide="users" class="w-4 h-4"></i> ${c.students.toLocaleString()} students</div>
+<div class="flex items-center gap-1"><i data-lucide="clock" class="w-4 h-4"></i> ${c.duration}</div>
+<div class="flex items-center gap-1"><i data-lucide="globe" class="w-4 h-4"></i> ${c.language}</div>
+</div>
+<div class="flex items-center gap-3 mb-6 pb-6 border-b">
+<div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold">${c.instructor.split(' ').map(n=>n[0]).join('')}</div>
+<div><p class="font-semibold text-gray-800">${c.instructor}</p><p class="text-sm text-gray-500">Course Instructor</p></div>
+</div>
+<div class="mb-6 pb-6 border-b">
+<h3 class="text-xl font-bold text-gray-800 mb-4">What You'll Learn</h3>
+<div class="grid sm:grid-cols-2 gap-3">${c.learn.map(l=>`<div class="flex items-start gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i><span class="text-gray-600 text-sm">${l}</span></div>`).join('')}</div>
+</div>
+<div class="mb-6 pb-6 border-b">
+<h3 class="text-xl font-bold text-gray-800 mb-4">Course Curriculum</h3>
+<div class="space-y-3">${c.curriculum.map((sec,i) => `<div class="border border-gray-200 rounded-xl overflow-hidden">
+<button onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.curr-icon').classList.toggle('rotate-180')" class="w-full flex items-center justify-between px-5 py-3 text-left font-medium text-gray-800 hover:bg-gray-50">
+<span>${sec.title}</span><i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 curr-icon transition-transform"></i>
+</button>
+<div class="curriculum-content"><div class="px-5 pb-3 space-y-2">${sec.topics.map(t=>`<div class="flex items-center gap-2 text-sm text-gray-600"><i data-lucide="play-circle" class="w-4 h-4 text-gray-400"></i>${t}</div>`).join('')}</div></div>
+</div>`).join('')}</div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-gray-800 mb-4">Requirements</h3>
+<ul class="space-y-2">${c.requirements.map(r=>`<li class="flex items-start gap-2 text-gray-600"><i data-lucide="circle" class="w-2 h-2 mt-2 text-gray-400 flex-shrink-0"></i>${r}</li>`).join('')}</ul>
+</div>
+</div>
+<div class="lg:col-span-1">
+<div class="sticky top-24 space-y-4">
+<div class="rounded-2xl overflow-hidden" style="background:linear-gradient(135deg,${c.gradient});height:200px;display:flex;align-items:center;justify-content:center">
+<span class="text-white/30 text-6xl font-bold">SF</span>
+</div>
+<div class="bg-gray-50 rounded-2xl p-6">
+<div class="mb-4">
+<span class="text-3xl font-bold ${c.price==='Free'?'text-emerald-600':'text-gray-800'}">${c.price}</span>
+${c.oldPrice ? `<span class="text-gray-400 line-through ml-2 text-sm">${c.oldPrice}</span>` : ''}
+</div>
+<button class="w-full py-3 bg-emerald-600 text-white font-semibold rounded-lg hover:bg-emerald-700 transition mb-3">${c.price==='Free'?'Enroll for Free':'Buy Now'}</button>
+<button class="w-full py-3 border-2 border-gray-200 text-gray-700 font-semibold rounded-lg hover:border-emerald-600 hover:text-emerald-600 transition flex items-center justify-center gap-2">
+<i data-lucide="heart" class="w-4 h-4"></i> Add to Wishlist
+</button>
+</div>
+<div class="bg-gray-50 rounded-2xl p-6">
+<h4 class="font-semibold text-gray-800 mb-3">Course Info</h4>
+<table class="w-full text-sm">
+<tr class="border-b border-gray-200"><td class="py-2 text-gray-500">Level</td><td class="py-2 text-gray-800 font-medium text-right">${c.level}</td></tr>
+<tr class="border-b border-gray-200"><td class="py-2 text-gray-500">Duration</td><td class="py-2 text-gray-800 font-medium text-right">${c.duration}</td></tr>
+<tr class="border-b border-gray-200"><td class="py-2 text-gray-500">Students</td><td class="py-2 text-gray-800 font-medium text-right">${c.students.toLocaleString()}</td></tr>
+<tr class="border-b border-gray-200"><td class="py-2 text-gray-500">Language</td><td class="py-2 text-gray-800 font-medium text-right">${c.language}</td></tr>
+<tr><td class="py-2 text-gray-500">Updated</td><td class="py-2 text-gray-800 font-medium text-right">${c.updated}</td></tr>
+</table>
+</div>
+<div class="flex flex-wrap gap-2">
+${c.tags.map(t=>`<span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">${t}</span>`).join('')}
+</div>
+</div>
+</div>
+</div>`;
+}
+
+function renderBlogDetail(post){
+return `<article class="max-w-3xl mx-auto">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">${post.category}</span>
+<span class="text-sm text-gray-500">${post.date}</span>
+<span class="text-sm text-gray-500">${post.readTime} read</span>
+</div>
+<h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">${post.title}</h1>
+<div class="flex items-center gap-3 mb-6 pb-6 border-b">
+<div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold text-sm">${post.author.split(' ').map(n=>n[0]).join('')}</div>
+<div><p class="font-semibold text-gray-800">${post.author}</p><p class="text-sm text-gray-500">${post.authorRole}</p></div>
+</div>
+<div class="rounded-2xl overflow-hidden mb-8" style="background:${post.gradient};height:250px;display:flex;align-items:center;justify-content:center">
+<span class="text-white/30 text-7xl font-bold">SF</span>
+</div>
+<div class="prose max-w-none">${post.content}</div>
+<div class="flex items-center gap-4 mt-8 pt-6 border-t">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-emerald-100 hover:text-emerald-600 text-gray-600 text-sm transition"><i data-lucide="heart" class="w-4 h-4"></i> Like</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-emerald-100 hover:text-emerald-600 text-gray-600 text-sm transition"><i data-lucide="message-circle" class="w-4 h-4"></i> Comment</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 hover:bg-emerald-100 hover:text-emerald-600 text-gray-600 text-sm transition"><i data-lucide="share-2" class="w-4 h-4"></i> Share</button>
+</div>
+</article>`;
+}
+
+function renderAboutPage(){
+return `<div class="max-w-4xl mx-auto text-center">
+<div class="w-16 h-16 mx-auto rounded-2xl bg-emerald-100 flex items-center justify-center mb-6"><i data-lucide="graduation-cap" class="w-8 h-8 text-emerald-600"></i></div>
+<h1 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">About <span class="gradient-text">SkillForge</span></h1>
+<p class="text-gray-600 max-w-2xl mx-auto mb-12">SkillForge is a leading online learning platform dedicated to empowering individuals worldwide with the skills they need to succeed in the digital age. Founded with a mission to make quality education accessible to everyone, we've grown into a vibrant community of learners, instructors, and industry professionals.</p>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+<div class="p-6 bg-emerald-50 rounded-2xl"><p class="text-2xl font-bold text-emerald-600">2020</p><p class="text-sm text-gray-600">Founded</p></div>
+<div class="p-6 bg-teal-50 rounded-2xl"><p class="text-2xl font-bold text-teal-600">50K+</p><p class="text-sm text-gray-600">Learners</p></div>
+<div class="p-6 bg-emerald-50 rounded-2xl"><p class="text-2xl font-bold text-emerald-600">200+</p><p class="text-sm text-gray-600">Courses</p></div>
+<div class="p-6 bg-teal-50 rounded-2xl"><p class="text-2xl font-bold text-teal-600">80+</p><p class="text-sm text-gray-600">Countries</p></div>
+</div>
+<div class="text-left space-y-12">
+<div><h2 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h2><p class="text-gray-600">Our mission is to democratize education by providing affordable, high-quality learning experiences that empower people to transform their lives and careers. We believe that everyone deserves access to world-class education, regardless of their location, background, or financial situation.</p></div>
+<div><h2 class="text-2xl font-bold text-gray-800 mb-4">Our Story</h2><p class="text-gray-600 mb-4">SkillForge was founded in 2020 by a group of passionate educators and technologists who saw a gap in online education. While there were many platforms offering courses, few provided the comprehensive, hands-on learning experience that truly prepares students for real-world challenges.</p><p class="text-gray-600">Starting with just 5 courses and a handful of students, we've grown into a global platform serving over 50,000 learners across 80+ countries. Our success is built on our commitment to quality, our focus on practical skills, and our supportive community.</p></div>
+<div><h2 class="text-2xl font-bold text-gray-800 mb-6">Our Team</h2>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="text-center p-6 bg-gray-50 rounded-2xl"><div class="w-16 h-16 mx-auto rounded-full bg-emerald-500 flex items-center justify-center text-white font-bold mb-3">JC</div><p class="font-semibold text-gray-800">James Carter</p><p class="text-sm text-gray-500">CEO & Co-Founder</p></div>
+<div class="text-center p-6 bg-gray-50 rounded-2xl"><div class="w-16 h-16 mx-auto rounded-full bg-teal-500 flex items-center justify-center text-white font-bold mb-3">SM</div><p class="font-semibold text-gray-800">Sarah Mitchell</p><p class="text-sm text-gray-500">CTO & Co-Founder</p></div>
+<div class="text-center p-6 bg-gray-50 rounded-2xl"><div class="w-16 h-16 mx-auto rounded-full bg-emerald-700 flex items-center justify-center text-white font-bold mb-3">RK</div><p class="font-semibold text-gray-800">Raj Krishnan</p><p class="text-sm text-gray-500">Head of Education</p></div>
+<div class="text-center p-6 bg-gray-50 rounded-2xl"><div class="w-16 h-16 mx-auto rounded-full bg-teal-700 flex items-center justify-center text-white font-bold mb-3">ML</div><p class="font-semibold text-gray-800">Maria Lopez</p><p class="text-sm text-gray-500">Head of Community</p></div>
+</div></div>
+<div><h2 class="text-2xl font-bold text-gray-800 mb-6">Our Values</h2>
+<div class="grid sm:grid-cols-2 gap-6">
+<div class="flex items-start gap-3"><div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0"><i data-lucide="target" class="w-5 h-5 text-emerald-600"></i></div><div><h4 class="font-semibold text-gray-800">Quality First</h4><p class="text-sm text-gray-600">We never compromise on the quality of our courses and learning experience.</p></div></div>
+<div class="flex items-start gap-3"><div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0"><i data-lucide="heart" class="w-5 h-5 text-teal-600"></i></div><div><h4 class="font-semibold text-gray-800">Student Success</h4><p class="text-sm text-gray-600">Every decision we make is driven by what's best for our learners.</p></div></div>
+<div class="flex items-start gap-3"><div class="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0"><i data-lucide="lightbulb" class="w-5 h-5 text-emerald-600"></i></div><div><h4 class="font-semibold text-gray-800">Innovation</h4><p class="text-sm text-gray-600">We continuously innovate to provide the best learning experience possible.</p></div></div>
+<div class="flex items-start gap-3"><div class="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0"><i data-lucide="users" class="w-5 h-5 text-teal-600"></i></div><div><h4 class="font-semibold text-gray-800">Community</h4><p class="text-sm text-gray-600">We believe in the power of community to support and accelerate learning.</p></div></div>
+</div></div>
+<div class="text-center p-8 bg-emerald-50 rounded-2xl"><h3 class="text-xl font-bold text-gray-800 mb-2">Get in Touch</h3><p class="text-gray-600 mb-4">Have questions about SkillForge? We'd love to hear from you.</p><p class="text-gray-600"><strong>Email:</strong> hello@skillforge.com | <strong>Phone:</strong> +1 (555) 123-4567</p></div>
+</div></div>`;
+}
+
+function renderLegalPage(page){
+return `<div class="max-w-3xl mx-auto">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center"><i data-lucide="${page.icon}" class="w-6 h-6 text-emerald-600"></i></div>
+<div>
+<h1 class="text-2xl lg:text-3xl font-bold text-gray-800">${page.title}</h1>
+<p class="text-sm text-gray-500">Last Updated: ${page.updated}</p>
+</div>
+</div>
+${page.content}
+<div class="mt-8 pt-6 border-t text-center text-gray-600">
+<p>Questions about our ${page.title.toLowerCase()}? <a href="#contact" onclick="closeModal()" class="text-emerald-600 hover:underline font-medium">Contact us</a>.</p>
+</div>
+</div>`;
+}
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded',function(){
+lucide.createIcons();
+renderCourses();
+animateCounters();
+});
+</script>
+</body>
+</html>
